@@ -36,7 +36,7 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5.0.0
         with:
           args: >
-            -Dsonar.projectKey=yoursa3dd51_projet
+            -Dsonar.projectKey=sa3dd51_projet
             -Dsonar.organization=sa3dd51
             -Dsonar.sources=.
             -Dsonar.python.version=3.11
