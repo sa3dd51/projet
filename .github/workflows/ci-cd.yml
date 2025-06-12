@@ -8,6 +8,7 @@ on:
 
 env:
   IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/advanced-python-app
+  ENVIRONMENT: ${{ secrets.ENVIRONMENT }}pp
 
 jobs:
   test:
@@ -74,13 +75,13 @@ jobs:
         ignore-unfixed: true
 
     - name: Push image to DockerHub (Staging)
-      if: ${{ secrets.ENVIRONMENT == 'staging' }}
+      if: env.ENVIRONMENT == 'staging'
       run: |
         docker tag $IMAGE_NAME:${{ github.run_number }} $IMAGE_NAME:staging
         docker push $IMAGE_NAME:staging
 
     - name: Push image to DockerHub (Production)
-      if: ${{ secrets.ENVIRONMENT == 'prod' }}
+      if: env.ENVIRONMENT == 'prod'
       run: |
         docker tag $IMAGE_NAME:${{ github.run_number }} $IMAGE_NAME:prod
         docker push $IMAGE_NAME:prod
