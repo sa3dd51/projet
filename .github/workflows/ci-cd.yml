@@ -8,7 +8,7 @@ on:
 
 env:
   IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/advanced-python-app
-  ENVIRONMENT: ${{ secrets.ENVIRONMENT }}pp
+  ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
 
 jobs:
   test:
